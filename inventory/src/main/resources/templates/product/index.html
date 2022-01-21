@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"/>
+<title>Product Manager</title>
+<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+</head>
+<body>
+    
+<div class="container">
+    <h1>Product List</h1>
+    <a href="/product/new">Create New Product</a>
+    <br/><br/>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Product ID</th>
+                <th>Name</th>
+                <th>Made In</th>
+                <th>Price</th>
+                <th>Brand</th>  
+                <th>Category</th>
+                <th>Year</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="product : ${listProducts}">
+                <td th:text="${product.id}">Product ID</td>
+                <td th:text="${product.name}">Name</td>
+                <td th:text="${product.madein}">Made in</td>
+                <td th:text="${product.price}">Price</td>
+                <td th:text="${product.brand_id}">Brand</td>
+                <td th:text="${product.category_id}">category</td>
+                <td th:text="${product.model_year}">Year</td>
+                <td>
+                    <a class="btn btn-primary" th:href="'/product/edit/' + ${product.id}">Edit</a>
+                    &nbsp;&nbsp;&nbsp;
+                    <a class="btn btn-danger" th:href="'product/delete/' + ${product.id}">Delete</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>   
+</body>
+</body>
+</html>

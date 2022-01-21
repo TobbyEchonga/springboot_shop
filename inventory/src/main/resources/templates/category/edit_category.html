@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Edit Category</title>
+<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+</head>
+<body>
+    <div align="center">
+        <h1>Edit Category</h1>
+        <br />
+        <form action="#" th:action="@{/category/save}" th:object="${category}"
+            method="post">
+ 
+            <table border="0" cellpadding="10">
+                <tr>             
+                    <td>Category ID:</td>
+                    <td>
+                        <input type="text" th:field="*{category_id}" readonly="readonly" />
+                    </td>
+                </tr>        
+                <tr>             
+                    <td>Category Name:</td>
+                    <td>
+                        <input type="text" th:field="*{category_name}" />
+                    </td>
+                </tr>                           
+                <tr>
+                    <td colspan="2"><button class="btn btn-success" type="submit">Save</button> </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Brand</title>
+<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+</head>
+<body>
+<div align="center">
+    
+    <div class="container">
+    <h1>Brand List</h1>
+    <a href="/brand/new">Create New Brand</a>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Brand ID</th>
+                    <th>Brand name</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="brand : ${listBrands}">
+                    <td th:text="${brand.brand_id}">Brand ID</td>
+                    <td th:text="${brand.brand_name}">Brand name</td>
+                    <td>
+                        <a class="btn btn-primary" th:href="'/brand/edit/' + ${brand.brand_id}">Edit</a>
+                        &nbsp;&nbsp;&nbsp;
+                        <a class="btn btn-danger " th:href="'/brand/delete/' + ${brand.brand_id}">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>   
+</body>
+</html>

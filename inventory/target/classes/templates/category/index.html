@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+</head>
+<body>
+    <div class="container">
+        <div align="center">
+            <h1>Brand List</h1>
+            <a href="/category/new">Create New Category</a>
+            <br/><br/>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Category ID</th>
+                        <th>Category name</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="category : ${listCategories}">
+                        <td th:text="${category.category_id}">Brand ID</td>
+                        <td th:text="${category.category_name}">Brand name</td>
+                        <td>
+                            <a class="btn btn-primary" th:href="'/category/edit/' + ${category.category_id}">Edit</a>
+                            &nbsp;&nbsp;&nbsp;
+                            <a class="btn btn-danger" th:href="'/category/delete/' + ${category.category_id}">Delete</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>     
+</body>
+</html>
